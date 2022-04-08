@@ -20,4 +20,12 @@ main
 				SETFOV32
 				RES032
 			SETFOV32
+		Sub_32x32_FP
+			Add_32x32_FP
+				NRM4032
+					SETFUN32
+					FIXSIGN32
+					SETFOV32
+					RES032
+				SETFOV32
 	Compare_Double

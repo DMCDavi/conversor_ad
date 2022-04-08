@@ -1,11 +1,12 @@
 #line 1 "E:/davim/GitHub/conversor_ad/conversor_ad.c"
+
 float analog_reading = 0;
 
 float MXP4115_Read(float valor) {
  valor /= 204.8;
  valor += 0.475;
- valor /= 0.045;
- return valor;
+ valor /= 0.0459;
+ return valor -  1.5 ;
 }
 
 void Init_AD() {
@@ -30,24 +31,26 @@ void main() {
 
  ADCON0.GO = 1;
  while (ADCON0.GO == 1);
- analog_reading = MXP4115_Read((ADRESH * 256) | (ADRESL));
+ analog_reading = MXP4115_Read((ADRESH * 256) + (ADRESL));
 
- if (analog_reading > 0 && analog_reading < 5) {
+ if (analog_reading > 20 && analog_reading < 30) {
  LATB = 0x80;
- } else if (analog_reading >= 5 && analog_reading < 10) {
+ } else if (analog_reading >= 30 && analog_reading < 40) {
  LATB = 0xC0;
- } else if (analog_reading >= 15 && analog_reading < 20) {
+ } else if (analog_reading >= 40 && analog_reading < 50) {
  LATB = 0xE0;
- } else if (analog_reading >= 25 && analog_reading < 30) {
+ } else if (analog_reading >= 50 && analog_reading < 60) {
  LATB = 0xF0;
- } else if (analog_reading >= 35 && analog_reading < 40) {
+ } else if (analog_reading >= 60 && analog_reading < 70) {
  LATB = 0xF8;
- } else if (analog_reading >= 45 && analog_reading < 50) {
+ } else if (analog_reading >= 70 && analog_reading < 80) {
  LATB = 0xFC;
- } else if (analog_reading >= 55 && analog_reading < 60) {
+ } else if (analog_reading >= 80 && analog_reading < 90) {
  LATB = 0xFE;
- } else if (analog_reading >= 65) {
+ } else if (analog_reading >= 90) {
  LATB = 0xFF;
+ } else {
+ LATB = 0x00;
  }
 
  }
