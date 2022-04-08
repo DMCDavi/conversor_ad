@@ -96,6 +96,7 @@ an3
 an3_bit
 an4
 an4_bit
+analog_reading
 b0
 b1
 b2
@@ -226,6 +227,7 @@ cmip
 cmip_bit
 comfrem
 compare_double
+config_ports
 crc16ee
 crc16ee_bit
 crc16ef
@@ -523,6 +525,7 @@ idlen_bit
 indf0
 indf1
 indf2
+init_ad
 int0
 int0_bit
 int0e
@@ -693,6 +696,7 @@ mul_32x32_fp
 mul_32x32_s
 mul_32x32_u
 mul_8x8_s
+mxp4115_read
 n
 n_bit
 not_a
